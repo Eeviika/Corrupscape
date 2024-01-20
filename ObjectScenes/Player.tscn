@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://drrlthwan0f8i"]
+
+[ext_resource type="SpriteFrames" uid="uid://cm0mekq7pa1sx" path="res://Resources/player_sprite_frames.tres" id="1_5sg6c"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_il1na"]
+[ext_resource type="Shape2D" uid="uid://b4ofasm2apufe" path="res://Resources/player_hitbox.tres" id="2_nexfj"]
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_il1na")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_5sg6c")
+animation = &"anxious_idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = ExtResource("2_nexfj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.95, 0.95)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
+editor_draw_limits = true
+
+[node name="MovementTimeout" type="Timer" parent="."]
+wait_time = 0.17
+one_shot = true
+
+[node name="SlideTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="MovementTimeout" to="." method="_on_movement_timeout_timeout"]
+[connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]

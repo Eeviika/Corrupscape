@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwnleu728gvy0"]
+
+[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_kfad2"]
+[ext_resource type="FontFile" uid="uid://cabfa0wmwi7m4" path="res://Assets/PixCon.ttf" id="2_ouyjr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h3d3"]
+font = ExtResource("2_ouyjr")
+font_size = 28
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_kfad2")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 672.0
+offset_right = 800.0
+offset_bottom = 5583.0
+text = "credits
+
+the main dude:
+---------------------------------------
+ika
+developer; artist; level desi.; sfx
+
+
+opengameart.org artists
+---------------------------------------
+hydrogene
+music: truth.mp3 & rush.mp3
+
+tinyworlds
+music: level.mp3 & level-fast.mp3
+
+joth
+music: title.mp3
+(Credits.txt for links!)
+
+playtesters
+---------------------------------------
+my dad, my mom, and my sister
+
+charles
+
+anonymous user
+
+do i count? i mean, i technically
+did playtest my own game, so
+- ika
+
+
+special thanks
+---------------------------------------
+pirate software
+for the game jam and motivation
+
+daly
+the best person to ever exist
+
+myself
+holy god i think i'm done
+(at the time of writing this credits scene i have realized i am not done and i want to bang my head on the keyboard now)
+
+
+
+
+
+
+
+
+
+
+
+
+
+thank you so much
+for playing my game!
+remember: it's not about winning.
+press R (B) to go to main menu
+
+wanna know what i learned?
+
+
+
+
+i'm not gonna tell you >:)
+
+
+
+
+
+
+
+
+
+
+
+
+
+oh and btw there's a secret ending but i'm not gonna tell you where unless you're coming here to the credits scene from the secret ending in which case congratulations"
+label_settings = SubResource("LabelSettings_2h3d3")
+horizontal_alignment = 1
+autowrap_mode = 3

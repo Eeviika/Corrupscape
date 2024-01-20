@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://djyis1oi0wvkc"]
+
+[ext_resource type="PackedScene" uid="uid://drrlthwan0f8i" path="res://ObjectScenes/Player.tscn" id="1_wqw5w"]
+[ext_resource type="PackedScene" uid="uid://c20nofwf48m8p" path="res://ObjectScenes/GameUI.tscn" id="2_t8jun"]
+[ext_resource type="TileSet" uid="uid://dhgh0msplaoe4" path="res://Resources/tiles.tres" id="3_a6gbf"]
+[ext_resource type="Script" path="res://Scripts/CorruptionSpread.gd" id="4_3nsk4"]
+[ext_resource type="LabelSettings" uid="uid://ceknv6lhrq0ee" path="res://Resources/in_game_ui_label.tres" id="5_pn4pt"]
+
+[node name="Level6" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wqw5w")]
+unique_name_in_owner = true
+position = Vector2(176, 240)
+max_steps = 14
+cameraLimits = {
+"bottom": 10000000,
+"left": -10000000,
+"right": 10000000,
+"top": 0
+}
+
+[node name="GameUI" parent="." instance=ExtResource("2_t8jun")]
+unique_name_in_owner = true
+level_number = 6
+
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+tile_set = ExtResource("3_a6gbf")
+format = 2
+layer_0/tile_data = PackedInt32Array(524296, 131072, 0, 524297, 65536, 0, 524298, 65536, 0, 589834, 0, 0, 655370, 65536, 0, 655369, 65536, 0, 655368, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458763, 65536, 0, 524299, 65536, 0, 589835, 0, 0, 655371, 458752, 0, 720907, 0, 0, 720906, 0, 0, 720905, 0, 0, 720904, 0, 0, 720903, 0, 0, 655367, 327680, 0, 589831, 0, 0, 524295, 65536, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 458764, 0, 0, 524300, 0, 0, 589836, 0, 0, 655372, 458752, 0, 720908, 0, 0, 720902, 0, 0, 655366, 0, 0, 589830, 0, 0, 458758, 65536, 0, 589829, 0, 0, 524293, 65536, 0, 458757, 65536, 0, 393220, 0, 0, 524294, 65536, 0, 458756, 0, 0, 589828, 0, 0, 655373, 0, 0, 720911, 0, 0, 720909, 0, 0, 720910, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 589832, 0, 0, 589833, 0, 0, 393221, 0, 0, 524292, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 786450, 0, 0, 851986, 0, 0, 786439, 0, 0, 786440, 327680, 0, 786441, 393216, 0, 786442, 393216, 0, 786443, 393216, 0, 786444, 393216, 0, 786445, 393216, 0, 786446, 393216, 0, 786447, 393216, 0, 786448, 393216, 0, 786449, 524288, 0, 589837, 0, 0)
+script = ExtResource("4_3nsk4")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -120.0
+offset_top = 544.0
+offset_right = 444.0
+offset_bottom = 605.0
+text = "Nothing is impossible."
+label_settings = ExtResource("5_pn4pt")
+horizontal_alignment = 1

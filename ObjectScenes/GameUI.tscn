@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c20nofwf48m8p"]
+
+[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="1_e01rb"]
+[ext_resource type="LabelSettings" uid="uid://ceknv6lhrq0ee" path="res://Resources/in_game_ui_label.tres" id="1_pxh8u"]
+[ext_resource type="FontFile" uid="uid://cabfa0wmwi7m4" path="res://Assets/PixCon.ttf" id="3_2q485"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_01wxf"]
+font = ExtResource("3_2q485")
+font_color = Color(0.156863, 0.776471, 0.254902, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mnud4"]
+font = ExtResource("3_2q485")
+font_color = Color(0.827451, 0.152941, 0.203922, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ex8ij"]
+load_path = "res://.godot/imported/lives.png-a455b25d72d607341fa523496df00c0c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyjxt"]
+atlas = SubResource("CompressedTexture2D_ex8ij")
+region = Rect2(0, 0, 16, 16)
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_e01rb")
+
+[node name="Stats" type="Label" parent="."]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 101.0
+text = "level 0
+steps: 0 / 0
+time: 0:00"
+label_settings = ExtResource("1_pxh8u")
+uppercase = true
+
+[node name="GoalReached" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 16.0
+offset_top = 104.0
+offset_right = 224.0
+offset_bottom = 197.0
+text = "level complete!
+press space (A) to continue
+press r (B) to retry"
+label_settings = SubResource("LabelSettings_01wxf")
+uppercase = true
+
+[node name="OutOfSteps" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 264.0
+offset_top = 16.0
+offset_right = 784.0
+offset_bottom = 384.0
+text = "out of steps"
+label_settings = SubResource("LabelSettings_mnud4")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="heart1" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 704.0
+offset_top = 8.0
+offset_right = 744.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_gyjxt")
+
+[node name="heart2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 752.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_gyjxt")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2ctjqk5jmw35"]
+
+[ext_resource type="PackedScene" uid="uid://baf1bs12psao6" path="res://ObjectScenes/tile_map.tscn" id="1_vh64o"]
+[ext_resource type="PackedScene" uid="uid://drrlthwan0f8i" path="res://ObjectScenes/Player.tscn" id="2_3d8li"]
+[ext_resource type="PackedScene" uid="uid://c20nofwf48m8p" path="res://ObjectScenes/GameUI.tscn" id="4_hof0o"]
+
+[node name="LevelTest" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_vh64o")]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("2_3d8li")]
+unique_name_in_owner = true
+position = Vector2(176, 368)
+max_steps = 50
+
+[node name="GameUi" parent="." instance=ExtResource("4_hof0o")]
+unique_name_in_owner = true
+level_number = -1

@@ -1,0 +1,244 @@
+[gd_scene load_steps=13 format=3 uid="uid://mjeryxk11041"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_npn87"]
+[ext_resource type="TileSet" uid="uid://dhgh0msplaoe4" path="res://Resources/tiles.tres" id="2_hd2ih"]
+[ext_resource type="FontFile" uid="uid://cabfa0wmwi7m4" path="res://Assets/PixCon.ttf" id="2_wgbus"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="3_toni6"]
+[ext_resource type="SpriteFrames" uid="uid://cm0mekq7pa1sx" path="res://Resources/player_sprite_frames.tres" id="4_k2774"]
+[ext_resource type="Shape2D" uid="uid://b4ofasm2apufe" path="res://Resources/player_hitbox.tres" id="5_86imp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sj65s"]
+font = ExtResource("2_wgbus")
+font_size = 30
+font_color = Color(0.482353, 0.32549, 0.678431, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hw08s"]
+font = ExtResource("2_wgbus")
+font_size = 30
+font_color = Color(0.156863, 0.776471, 0.254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mi5xf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km42c"]
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.407843, 0.407843, 0.407843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jr87t"]
+font = ExtResource("2_wgbus")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eblbl"]
+font = ExtResource("2_wgbus")
+font_size = 12
+font_color = Color(1, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_npn87")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 190.0
+offset_bottom = 62.0
+text = "Corrup"
+label_settings = SubResource("LabelSettings_sj65s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 190.0
+offset_top = 8.0
+offset_right = 335.0
+offset_bottom = 62.0
+text = "Scape"
+label_settings = SubResource("LabelSettings_hw08s")
+metadata/_edit_use_anchors_ = true
+
+[node name="StartScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 640.0
+metadata/_edit_lock_ = true
+
+[node name="StartButton" type="Button" parent="StartScreen"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 147.0
+offset_right = 288.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("2_wgbus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mi5xf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mi5xf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_km42c")
+text = "Click here to start!"
+
+[node name="Label3" type="Label" parent="StartScreen"]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 62.0
+offset_right = 246.0
+offset_bottom = 123.0
+text = "Version 1.0.0
+Game jam release"
+label_settings = SubResource("LabelSettings_jr87t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="StartScreen"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.804688
+anchor_right = 0.645
+anchor_bottom = 0.804688
+offset_left = 16.0
+offset_top = 62.0
+offset_right = 246.0
+offset_bottom = 123.0
+text = "Try Me!
+wasd, arrow keys, or d-pad"
+label_settings = SubResource("LabelSettings_jr87t")
+metadata/_edit_use_anchors_ = true
+
+[node name="ActualButtons" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 640.0
+metadata/_edit_lock_ = true
+
+[node name="NewGameButton" type="Button" parent="ActualButtons"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 147.0
+offset_right = 288.0
+offset_bottom = 184.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_wgbus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mi5xf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mi5xf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_km42c")
+text = "start new game"
+
+[node name="ContinueGameButton" type="Button" parent="ActualButtons"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 273.0
+offset_right = 288.0
+offset_bottom = 310.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_wgbus")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mi5xf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mi5xf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_km42c")
+disabled = true
+text = "continue"
+
+[node name="Label4" type="Label" parent="ActualButtons"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.01
+anchor_top = 0.8
+anchor_right = 0.0975
+anchor_bottom = 0.8
+offset_left = 16.0
+offset_top = 62.0
+offset_right = 246.0
+offset_bottom = 123.0
+text = "version 1.0.0 (Game jam release)
+Made with love by ika <3"
+label_settings = SubResource("LabelSettings_jr87t")
+metadata/_edit_use_anchors_ = true
+
+[node name="WarningNewGame" type="Label" parent="ActualButtons"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.190625
+anchor_right = 0.0525
+anchor_bottom = 0.207813
+offset_left = 16.0
+offset_top = 62.0
+offset_right = 246.0
+offset_bottom = 123.0
+text = "warning:
+this will erase your
+current save file!"
+label_settings = SubResource("LabelSettings_eblbl")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_hd2ih")
+format = 2
+layer_0/tile_data = PackedInt32Array(393228, 0, 0, 458764, 0, 0, 524300, 0, 0, 589836, 0, 0, 655372, 0, 0, 720908, 0, 0, 786444, 0, 0, 327692, 196608, 0, 327693, 65536, 0, 393229, 65536, 0, 458765, 65536, 0, 524301, 65536, 0, 589837, 65536, 0, 655373, 65536, 0, 720909, 65536, 0, 786445, 65536, 0, 851981, 65536, 0, 851980, 0, 0, 131095, 0, 0, 131094, 0, 0, 131093, 0, 0, 131092, 0, 0, 131091, 0, 0, 131090, 0, 0, 131089, 0, 0, 131088, 0, 0, 131087, 196608, 65536, 131086, 0, 0, 131085, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0, 917516, 0, 0, 983052, 0, 0, 1048588, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1048599, 0, 0, 983063, 0, 0, 917527, 0, 0, 851991, 0, 0, 786455, 0, 0, 720919, 0, 0, 655383, 0, 0, 589847, 0, 0, 524311, 0, 0, 458775, 0, 0, 393239, 0, 0, 327703, 0, 0, 262166, 589824, 0, 196630, 589824, 0, 262167, 0, 0, 196631, 0, 0, 393234, 196608, 196608, 327698, 65536, 0, 262162, 65536, 0, 196626, 65536, 0, 196625, 65536, 0, 196624, 262144, 0, 196623, 65536, 0, 196622, 131072, 0, 196621, 65536, 0, 262157, 131072, 0, 262158, 65536, 0, 327694, 65536, 0, 393230, 65536, 0, 458766, 65536, 0, 524302, 65536, 0, 589838, 65536, 0, 655374, 65536, 0, 720910, 65536, 0, 786446, 65536, 0, 851982, 65536, 0, 917518, 65536, 0, 917517, 65536, 0, 983053, 589824, 0, 1048589, 589824, 0, 1048590, 589824, 0, 983054, 65536, 0, 983055, 65536, 0, 917519, 65536, 0, 851983, 65536, 0, 786447, 65536, 0, 720911, 65536, 0, 655375, 65536, 0, 589839, 65536, 0, 524303, 65536, 0, 458767, 65536, 0, 393231, 65536, 0, 327695, 65536, 0, 262159, 65536, 0, 262160, 65536, 0, 327696, 65536, 0, 393232, 65536, 0, 458768, 196608, 131072, 524304, 196608, 131072, 589840, 65536, 0, 655376, 196608, 131072, 720912, 196608, 131072, 786448, 65536, 0, 851984, 65536, 0, 917520, 65536, 0, 983056, 65536, 0, 1048592, 262144, 0, 1048591, 65536, 0, 1048593, 65536, 0, 983057, 65536, 0, 917521, 65536, 0, 851985, 65536, 0, 786449, 196608, 65536, 720913, 65536, 0, 655377, 65536, 0, 589841, 65536, 0, 524305, 65536, 0, 458769, 65536, 0, 393233, 196608, 196608, 327697, 65536, 0, 262161, 65536, 0, 458770, 65536, 0, 524306, 65536, 0, 589842, 65536, 0, 655378, 65536, 0, 720914, 65536, 0, 786450, 196608, 65536, 851986, 65536, 0, 917522, 65536, 0, 983058, 65536, 0, 1048594, 65536, 0, 1048595, 262144, 0, 983059, 65536, 0, 917523, 65536, 0, 851987, 65536, 0, 786451, 65536, 0, 720915, 196608, 0, 655379, 196608, 0, 589843, 65536, 0, 524307, 196608, 0, 458771, 196608, 0, 393235, 65536, 0, 327699, 65536, 0, 262163, 65536, 0, 196627, 262144, 0, 196628, 65536, 0, 262164, 65536, 0, 327700, 65536, 0, 393236, 65536, 0, 458772, 65536, 0, 524308, 65536, 0, 589844, 65536, 0, 655380, 65536, 0, 720916, 65536, 0, 786452, 65536, 0, 851988, 65536, 0, 917524, 65536, 0, 983060, 65536, 0, 1048596, 65536, 0, 1048597, 589824, 0, 983061, 65536, 0, 917525, 65536, 0, 851989, 65536, 0, 786453, 65536, 0, 720917, 65536, 0, 655381, 65536, 0, 589845, 65536, 0, 524309, 65536, 0, 458773, 65536, 0, 393237, 65536, 0, 327701, 65536, 0, 262165, 65536, 0, 196629, 589824, 0, 327702, 65536, 0, 393238, 65536, 0, 458774, 65536, 0, 524310, 65536, 0, 589846, 65536, 0, 655382, 65536, 0, 720918, 65536, 0, 786454, 65536, 0, 851990, 65536, 0, 917526, 65536, 0, 983062, 589824, 0, 1048598, 589824, 0, 65550, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 1048600, 0, 0, 1114136, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179670, 0, 0, 983064, 0, 0, 1179669, 0, 0, 65551, 196608, 65536, 327691, 196608, 0)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(432, 112)
+scale = Vector2(2, 2)
+script = ExtResource("3_toni6")
+max_steps = 99999
+cameraLimits = {
+"bottom": 10000000,
+"left": -10000000,
+"right": 10000000,
+"top": 0
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = ExtResource("4_k2774")
+animation = &"anxious_idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
+shape = ExtResource("5_86imp")
+
+[node name="MovementTimeout" type="Timer" parent="Player"]
+wait_time = 0.17
+one_shot = true
+
+[node name="SlideTimer" type="Timer" parent="Player"]
+wait_time = 0.16
+one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="Player"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+offset_right = 800.0
+offset_bottom = 640.0
+mouse_filter = 2
+color = Color(0.105882, 0.109804, 0.2, 1)
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Player/MovementTimeout" to="Player" method="_on_movement_timeout_timeout"]
+[connection signal="timeout" from="Player/SlideTimer" to="Player" method="_on_slide_timer_timeout"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b88r2auchaegb"]
+
+[ext_resource type="PackedScene" uid="uid://drrlthwan0f8i" path="res://ObjectScenes/Player.tscn" id="1_vuook"]
+[ext_resource type="PackedScene" uid="uid://c20nofwf48m8p" path="res://ObjectScenes/GameUI.tscn" id="2_ptqkj"]
+[ext_resource type="TileSet" uid="uid://dhgh0msplaoe4" path="res://Resources/tiles.tres" id="3_0bcx8"]
+[ext_resource type="Script" path="res://Scripts/CorruptionSpread.gd" id="4_oeia3"]
+[ext_resource type="LabelSettings" uid="uid://ceknv6lhrq0ee" path="res://Resources/in_game_ui_label.tres" id="5_g2wh6"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vuook")]
+unique_name_in_owner = true
+position = Vector2(240, 240)
+max_steps = 10
+cameraLimits = {
+"bottom": 10000000,
+"left": -10000000,
+"right": 10000000,
+"top": 0
+}
+
+[node name="GameUI" parent="." instance=ExtResource("2_ptqkj")]
+unique_name_in_owner = true
+level_number = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+tile_set = ExtResource("3_0bcx8")
+format = 2
+layer_0/tile_data = PackedInt32Array(589833, 0, 0, 589832, 131072, 0, 524296, 65536, 0, 524297, 131072, 0, 524298, 0, 0, 589834, 65536, 0, 655370, 65536, 0, 655369, 65536, 0, 655368, 0, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 131072, 0, 458763, 0, 0, 524299, 65536, 0, 589835, 65536, 0, 655371, 65536, 0, 720907, 65536, 0, 720906, 65536, 0, 720905, 65536, 0, 720904, 65536, 0, 720903, 0, 0, 655367, 131072, 0, 589831, 65536, 0, 524295, 65536, 0, 393222, 458752, 0, 393223, 65536, 0, 393224, 65536, 0, 393225, 65536, 0, 393226, 65536, 0, 393227, 65536, 0, 393228, 0, 0, 458764, 524288, 0, 524300, 65536, 0, 589836, 65536, 0, 655372, 65536, 0, 720908, 65536, 0, 786444, 65536, 0, 786443, 65536, 0, 786442, 65536, 0, 786441, 65536, 0, 786440, 65536, 0, 786439, 65536, 0, 786438, 0, 0, 720902, 65536, 0, 655366, 65536, 0, 589830, 65536, 0, 524294, 65536, 0, 458758, 65536, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0, 524301, 0, 0, 589837, 0, 0, 655373, 0, 0, 720909, 0, 0, 786445, 0, 0, 851981, 0, 0, 851980, 0, 0, 851979, 0, 0, 851978, 0, 0, 851977, 0, 0, 851976, 0, 0, 851975, 0, 0, 851974, 0, 0, 851973, 0, 0, 786437, 0, 0, 720901, 0, 0, 655365, 0, 0, 589829, 0, 0, 524293, 0, 0, 458757, 0, 0, 393221, 0, 0)
+script = ExtResource("4_oeia3")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 96.0
+offset_top = 480.0
+offset_right = 512.0
+offset_bottom = 503.0
+text = "jump over that wall!"
+label_settings = ExtResource("5_g2wh6")
+horizontal_alignment = 1

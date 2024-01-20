@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfxddwdnekl7m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yjkf7"]
+font_size = 20
+outline_size = 1
+outline_color = Color(1, 0, 0, 1)
+
+[node name="LevelError" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 640.0
+
+[node name="Note" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 128.0
+text = "An unexpected error has occurred.
+
+Luckily, this game's developer was competent enough to actually catch this error.
+
+You can either:
+- Go back to a fresh version of the scene you were in (Press R)
+- Exit the game (Hold ESC or press X on the window's bar.)
+- Return to the title screen (Will automatically happen in 30 seconds.)
+
+DM \"Eeviika\" on Discord about this error with the following information below.
+"
+label_settings = SubResource("LabelSettings_yjkf7")
+autowrap_mode = 3
+
+[node name="ErrorArea" type="TextEdit" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 384.0
+offset_right = 800.0
+offset_bottom = 640.0
+theme_override_colors/background_color = Color(0, 0, 0, 1)
+placeholder_text = "An error will appear here.
+
+If none appears within five seconds, report ERROR_NOT_GENERATED to Eeviika, as well as what you were doing at the time."
+editable = false
+wrap_mode = 1
+
+[node name="CopyToClipboardButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 608.0
+offset_right = 146.0
+offset_bottom = 639.0
+text = "Copy to Clipboard"
+flat = true

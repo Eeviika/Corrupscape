@@ -20,8 +20,3 @@ func _ready():
 	continue_game_button.pressed.connect(func()->void:
 		GameManager.switchScreen("res://Levels/Level{0}.tscn".format([GameManager.getSaveFile().levelNumber]))
 	)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

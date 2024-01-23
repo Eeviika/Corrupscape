@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhbfx3hogr4ai"]
+
+[ext_resource type="PackedScene" uid="uid://drrlthwan0f8i" path="res://ObjectScenes/Player.tscn" id="1_n5c4a"]
+[ext_resource type="PackedScene" uid="uid://c20nofwf48m8p" path="res://ObjectScenes/GameUI.tscn" id="2_ql2gc"]
+[ext_resource type="TileSet" uid="uid://dhgh0msplaoe4" path="res://Resources/tiles.tres" id="3_kdr7l"]
+[ext_resource type="Script" path="res://Scripts/CorruptionSpread.gd" id="4_785e5"]
+[ext_resource type="LabelSettings" uid="uid://ceknv6lhrq0ee" path="res://Resources/in_game_ui_label.tres" id="5_ci8c1"]
+
+[node name="Level19" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_n5c4a")]
+unique_name_in_owner = true
+position = Vector2(240, 240)
+motion_mode = 1
+max_steps = 5
+cameraLimits = {
+"bottom": 10000000,
+"left": -10000000,
+"right": 10000000,
+"top": 0
+}
+
+[node name="GameUI" parent="." instance=ExtResource("2_ql2gc")]
+unique_name_in_owner = true
+level_number = 19
+
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1, 1)
+scale = Vector2(2, 2)
+tile_set = ExtResource("3_kdr7l")
+format = 2
+layer_0/tile_data = PackedInt32Array(589833, 65536, 0, 589832, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 589834, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458763, 0, 0, 524299, 0, 0, 589835, 65536, 0, 589831, 65536, 0, 524295, 131072, 0, 393222, 458752, 0, 393223, 65536, 0, 393224, 65536, 0, 393225, 65536, 0, 393226, 458752, 0, 393227, 0, 0, 589830, 65536, 0, 524294, 65536, 0, 458758, 65536, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 589829, 0, 0, 524293, 0, 0, 458757, 0, 0, 393221, 0, 0, 655370, 131072, 0, 720906, 327680, 0, 786442, 65536, 0, 851978, 65536, 0, 655366, 65536, 0, 720902, 65536, 0, 786438, 65536, 0, 851974, 65536, 0, 917510, 65536, 0, 983046, 65536, 0, 983047, 65536, 0, 983048, 65536, 0, 983049, 65536, 0, 983050, 65536, 0, 917514, 65536, 0, 917513, 65536, 0, 917512, 65536, 0, 851976, 65536, 0, 851975, 65536, 0, 786439, 65536, 0, 786440, 65536, 0, 720904, 458752, 0, 720905, 524288, 0, 655369, 65536, 0, 655368, 65536, 0, 851977, 65536, 0, 786441, 65536, 0, 655367, 65536, 0, 917511, 65536, 0, 720903, 65536, 0, 655365, 0, 0, 720901, 0, 0, 786437, 0, 0, 851973, 0, 0, 917509, 0, 0, 983045, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 983051, 0, 0, 917515, 0, 0, 851979, 0, 0, 786443, 0, 0, 720907, 0, 0, 655371, 65536, 0, 655372, 196608, 131072)
+script = ExtResource("4_785e5")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 72.0
+offset_top = 128.0
+offset_right = 488.0
+offset_bottom = 189.0
+text = "Stop breaking my game!"
+label_settings = ExtResource("5_ci8c1")
+horizontal_alignment = 1

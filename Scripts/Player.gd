@@ -65,7 +65,7 @@ func moveOnLastInputDirection(speed = 16, tweenType = "linear", time=0.6) -> Twe
 func jump():
 	SFX_Player.stream = SFX.jump
 	SFX_Player.play()
-	var tween:= moveOnLastInputDirection(32, "bounce")
+	var tween:= moveOnLastInputDirection(32, "bounce", 0.45)
 
 	tween.finished.connect(func() -> void:
 		updateTilePos(true)
@@ -203,7 +203,7 @@ func _on_movement_timeout_timeout():
 	after_step.emit(tile_position, position)
 
 func _ready():
-	camera = get_node_or_null("$Camera")
+	camera = get_node_or_null("Camera")
 	tile_map = get_node_or_null("%TileMap")
 	if !tile_map:
 		GameManager.switchScreen("res://Levels/LevelError.tscn", GameManager.GameErrors.PLAYER_IN_NON_TILEMAP_LEVEL)
@@ -233,7 +233,7 @@ func _ready():
 
 func _unhandled_input(_event):
 
-	if Input.is_action_pressed("_special") and get_node_or_null("%GameUI") and camera:
+	if Input.is_action_pressed("_special") and camera:
 		camera.offset.x += Input.get_axis("_left", "_right") * 32
 		camera.offset.y += Input.get_axis("_up", "_down") * 32
 		return

@@ -7,7 +7,7 @@ var background_music: Dictionary
 var background_music_currently_playing: String = ""
 var volume := 20
 
-enum GameErrors {SCREEN_DOES_NOT_EXIST, PLAYER_IN_NON_TILEMAP_LEVEL, CORRUPTION_IN_NON_PLAYER_LEVEL, GAME_UI_CANNOT_CONNECT_TO_PLAYER, MUSIC_PAK_IS_INVALID, MUSIC_LOADED_IS_INVALID}
+enum GameErrors {SCREEN_DOES_NOT_EXIST, PLAYER_IN_NON_TILEMAP_LEVEL, CORRUPTION_IN_NON_PLAYER_LEVEL, GAME_UI_CANNOT_CONNECT_TO_PLAYER, MUSIC_PAK_IS_INVALID, MUSIC_LOADED_IS_INVALID, I_FOUND_YOU=404}
 
 enum Tiles {VOID=-1, WALL, FLOOR, JUMP, SLIDE, SKIP, DECAYSTART, DECAYEND, CORRUPT, GOAL, TURNADD}
 
@@ -60,9 +60,6 @@ func stopBackgroundMusic():
 
 func switchScreen(path, data=""):
 	current_data = data if str(data) != "" else current_data
-	if !FileAccess.file_exists(path):
-		switchScreen("res://Levels/LevelError.tscn", GameErrors.SCREEN_DOES_NOT_EXIST)
-		return;
 	previous_scene = [get_tree().current_scene.name, get_tree().current_scene.scene_file_path]
 	get_tree().call_deferred("change_scene_to_file", path)
 

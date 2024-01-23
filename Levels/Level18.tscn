@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://y6jceu6cglmb"]
+
+[ext_resource type="PackedScene" uid="uid://drrlthwan0f8i" path="res://ObjectScenes/Player.tscn" id="1_xfq0a"]
+[ext_resource type="PackedScene" uid="uid://c20nofwf48m8p" path="res://ObjectScenes/GameUI.tscn" id="2_3w8ta"]
+[ext_resource type="TileSet" uid="uid://dhgh0msplaoe4" path="res://Resources/tiles.tres" id="3_rfg6v"]
+[ext_resource type="Script" path="res://Scripts/CorruptionSpread.gd" id="4_1e2at"]
+[ext_resource type="LabelSettings" uid="uid://ceknv6lhrq0ee" path="res://Resources/in_game_ui_label.tres" id="5_42mx0"]
+
+[node name="Level18" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_xfq0a")]
+unique_name_in_owner = true
+position = Vector2(272, 272)
+max_steps = 3
+cameraLimits = {
+"bottom": 10000000,
+"left": -10000000,
+"right": 10000000,
+"top": 0
+}
+
+[node name="GameUI" parent="." instance=ExtResource("2_3w8ta")]
+unique_name_in_owner = true
+level_number = 18
+
+[node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1, 1)
+scale = Vector2(2, 2)
+tile_set = ExtResource("3_rfg6v")
+format = 2
+layer_0/tile_data = PackedInt32Array(589833, 0, 0, 589832, 0, 0, 524296, 65536, 0, 524297, 0, 0, 458759, 131072, 0, 458760, 196608, 131072, 458761, 0, 0, 589831, 0, 0, 524295, 65536, 0, 393222, 458752, 0, 393223, 65536, 0, 393224, 65536, 0, 393225, 0, 0, 589830, 0, 0, 524294, 65536, 0, 458758, 65536, 0, 327685, 65536, 0, 327686, 524288, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 589829, 0, 0, 524293, 65536, 0, 458757, 0, 0, 393221, 0, 0)
+script = ExtResource("4_1e2at")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -144.0
+offset_top = 608.0
+offset_right = 289.0
+offset_bottom = 669.0
+text = "What are you doing?
+This isn't how you play the game."
+label_settings = ExtResource("5_42mx0")
+horizontal_alignment = 1
